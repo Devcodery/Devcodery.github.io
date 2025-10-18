@@ -1,33 +1,196 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devcodery | Portfolio - Eros Pacheco</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Portafolio de Eros Pacheco - Estudiante en Desarrollo de Aplicaciones Multiplataforma. Proyectos: VPN casera, servidor multimedia, Pi-hole.">
+  <style> body { font-family: 'Roboto', sans-serif; } </style>
 </head>
+<body class="bg-gray-950 text-gray-200">
 
-<body>
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-800">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <h1 class="text-xl font-bold text-purple-500">Devcodery</h1>
+      <ul class="hidden md:flex gap-6 text-sm">
+        <li><a href="#inicio" class="hover:text-purple-400 transition">Inicio</a></li>
+        <li><a href="#sobre-mi" class="hover:text-purple-400 transition">Sobre mí</a></li>
+        <li><a href="#servicios" class="hover:text-purple-400 transition">Servicios</a></li>
+        <li><a href="#proyectos" class="hover:text-purple-400 transition">Proyectos</a></li>
+        <li><a href="#blog" class="hover:text-purple-400 transition">Blog</a></li>
+        <li><a href="#contacto" class="hover:text-purple-400 transition">Contacto</a></li>
+      </ul>
+      <!-- mobile menu toggle (simple) -->
+      <div class="md:hidden">
+        <button id="btn-menu" aria-label="Abrir menú" class="text-gray-300">☰</button>
+      </div>
+    </nav>
+  </header>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/app.js"></script>
+  <!-- Hero Section -->
+  <section id="inicio" class="h-screen flex items-center justify-center text-center px-4">
+    <div>
+      <h2 class="text-4xl md:text-6xl font-bold mb-4">Hola, soy <span class="text-purple-500">Eros Pacheco</span></h2>
+      <p class="text-purple-400 font-semibold mb-2">Estudiante en Desarrollo de Aplicaciones Multiplataforma</p>
+      <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-6">Transformo ideas en proyectos reales.</p>
+
+      <div class="flex flex-wrap justify-center gap-3 mb-6 text-sm">
+        <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30">Java</span>
+        <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30">Python</span>
+        <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30">HTML</span>
+        <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30">CSS</span>
+        <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30">JavaScript</span>
+        <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30">Redes Domésticas</span>
+      </div>
+
+      <a href="#proyectos" class="inline-block bg-purple-600 hover:bg-purple-700 transition px-6 py-3 rounded-lg font-medium">Ver Proyectos</a>
+
+      <div class="flex justify-center gap-6 mt-8 text-2xl">
+        <a href="https://github.com/Devcodery" class="hover:text-purple-400 transition">GitHub</a>
+        <a href="https://www.linkedin.com/in/eros-pacheco-9bb850328/" class="hover:text-purple-400 transition">LinkedIn</a>
+        <a href="https://www.instagram.com/devcodery/" class="hover:text-purple-400 transition">Instagram</a>
+        <a href="" class="hover:text-purple-400 transition"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre mí -->
+  <section id="sobre-mi" class="py-20 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+      <!-- Texto principal -->
+      <div class="md:col-span-2">
+        <h3 class="text-3xl font-bold text-white mb-4">Sobre mí</h3>
+        <p class="text-gray-300 mb-4 leading-relaxed">
+          Hola — soy <strong>Eros Pacheco</strong>, estudiante de <em>Desarrollo de Aplicaciones Multiplataforma</em>. Me apasiona convertir ideas en proyectos reales: desde automatizar tareas hasta montar servicios en red para uso doméstico y aprendizaje.
+        </p>
+        <p class="text-gray-300 mb-4 leading-relaxed">
+          Actualmente estoy construyendo experiencia práctica mientras trabajo en proyectos personales y pequeños servicios para mi hogar. Me gusta aprender nuevas tecnologías y mejorar mis habilidades día a día.
+        </p>
+
+        <p class="text-gray-300 mb-4 leading-relaxed">
+          Me interesa la <strong>ciberseguridad</strong> y la <strong>administración de sistemas</strong>, y disfruto diseñando soluciones que sean robustas y mantenibles.
+        </p>
+
+        <div class="mt-6">
+          <h4 class="text-xl font-semibold text-white mb-2">Proyectos destacados</h4>
+          <ul class="list-disc pl-5 text-gray-300 space-y-2">
+            <li>VPN casera para acceso remoto y seguridad de la red.</li>
+            <li>Servidor multimedia propio para streaming local.</li>
+            <li>Servidor Pi-hole para bloqueo de publicidad y gestión de DNS.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Foto y habilidades -->
+      <aside class="flex flex-col items-center gap-6">
+        <!-- Placeholder image -->
+        <div class="w-48 h-48 rounded-xl bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center border border-gray-800 overflow-hidden">
+          <span class="text-gray-400">Tu foto aquí</span>
+        </div>
+
+        <div class="w-full bg-gray-900/60 p-4 rounded-lg border border-gray-800">
+          <h5 class="text-sm font-semibold text-purple-400 mb-3">Mis habilidades</h5>
+          <div class="grid grid-cols-2 gap-2 text-sm text-gray-300">
+            <div>- Java</div>
+            <div>- Python</div>
+            <div>- HTML</div>
+            <div>- CSS</div>
+            <div>- JavaScript</div>
+            <div>- Redes domésticas</div>
+            <div>- Administración de servidores Linux</div>
+            <div>- Seguridad básica / VPN</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Servicios (placeholder) -->
+  <section id="servicios" class="py-20 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-3xl font-bold text-white mb-6">Servicios</h3>
+      <p class="text-gray-300 mb-4">Puedo ofrecer servicios como desarrollo web, scripts de automatización, configuración de redes domésticas y despliegue de servidores personales.</p>
+      <!-- Cards could go here -->
+    </div>
+  </section>
+
+  <!-- Proyectos (placeholder) -->
+  <section id="proyectos" class="py-20 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-3xl font-bold text-white mb-6">Proyectos</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Example project card -->
+        <article class="bg-gray-900/40 p-4 rounded-lg border border-gray-800">
+          <h4 class="font-semibold text-white mb-2">VPN Casera</h4>
+          <p class="text-gray-300 text-sm mb-3">Implementé una VPN para acceso remoto seguro a mi red doméstica, con enrutamiento y reglas básicas de firewall.</p>
+          <p class="text-xs text-gray-400">Tecnologías: WireGuard, iptables, Linux</p>
+        </article>
+
+        <article class="bg-gray-900/40 p-4 rounded-lg border border-gray-800">
+          <h4 class="font-semibold text-white mb-2">Servidor Multimedia</h4>
+          <p class="text-gray-300 text-sm mb-3">Servidor local para multimedia con transcodificación y acceso en la red doméstica.</p>
+          <p class="text-xs text-gray-400">Tecnologías: Plex/Emby, Linux</p>
+        </article>
+
+        <article class="bg-gray-900/40 p-4 rounded-lg border border-gray-800">
+          <h4 class="font-semibold text-white mb-2">Pi-hole</h4>
+          <p class="text-gray-300 text-sm mb-3">Servidor Pi-hole desplegado para bloqueo de publicidad y control de DNS en la red.</p>
+          <p class="text-xs text-gray-400">Tecnologías: Pi-hole, Docker, DNS</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="py-20 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-3xl font-bold text-white mb-6">Contacto</h3>
+      <p class="text-gray-300 mb-6">¿Quieres hablar de un proyecto o necesitas ayuda? Escríbeme.</p>
+
+      <form class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
+        <input class="bg-gray-900/40 p-3 rounded border border-gray-800" placeholder="Tu nombre" />
+        <input class="bg-gray-900/40 p-3 rounded border border-gray-800" placeholder="Tu email" />
+        <input class="md:col-span-2 bg-gray-900/40 p-3 rounded border border-gray-800" placeholder="Asunto" />
+        <textarea class="md:col-span-2 bg-gray-900/40 p-3 rounded border border-gray-800" rows="6" placeholder="Mensaje..."></textarea>
+        <button type="submit" class="md:col-span-2 bg-purple-600 hover:bg-purple-700 px-4 py-3 rounded">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 border-t border-gray-800 mt-12">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-gray-400">
+      <p>&copy; <span id="year"></span> Eros Pacheco — Devcodery. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Set year
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Simple mobile menu toggle
+    const btn = document.getElementById('btn-menu');
+    btn.addEventListener('click', () => {
+      const ul = document.querySelector('header nav ul');
+      if (!ul) return;
+      ul.classList.toggle('hidden');
+    });
+
+    // Smooth scroll for anchor links (optional enhancement)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 
 </body>
-
 </html>
