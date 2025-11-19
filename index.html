@@ -13,42 +13,50 @@
       rel="stylesheet">
     <meta name="description"
       content="Portafolio de Eros Pacheco - Estudiante en Desarrollo de Aplicaciones Multiplataforma. Proyectos: VPN casera, servidor multimedia, Pi-hole.">
-    <style> 
-    body { font-family: 'Roboto', sans-serif; }
-    /* Ocultar barra de desplazamiento, pero mantener funcionalidad de scroll */
-    .custom-scrollbar::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
-    }
+    <style>
+      html, body {
+        overflow-x: hidden; /* Prohibido el scroll horizontal */
+        width: 100%;        /* Asegura que el ancho sea el de la pantalla */
+        position: relative; /* Ayuda a contener elementos absolutos */
+      }
 
-    .custom-scrollbar {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-    }
-    /* 1. Definición de la animación de desplazamiento */
-    @keyframes scroll-left {
-        /* Mueve el contenido exactamente a la mitad (100% de un bloque) */
-        from {
-            transform: translateX(0);
-        }
-        to {
-            /* Mueve el contenido el ancho total de un bloque duplicado */
-            transform: translateX(-50%);
-        }
-    }
+      body { 
+        font-family: 'Roboto', sans-serif; 
+      }
+      /* Ocultar barra de desplazamiento, pero mantener funcionalidad de scroll */
+      .custom-scrollbar::-webkit-scrollbar {
+          display: none; /* Chrome, Safari, Opera */
+      }
 
-    /* 2. Aplicación de la animación a la pista */
-    .infinite-scroll-track {
-        /* Animación: nombre | duración | función de tiempo | repetición */
-        animation: scroll-left 40s linear infinite; 
-        
-        /* Asegura que el contenido sea lo suficientemente ancho para el bucle */
-        width: max-content; 
-    }
-    
-    /* 3. Pausar la animación al pasar el ratón (Buena práctica de UX) */
-    .infinite-scroll-track:hover {
-        animation-play-state: paused;
-    }
+      .custom-scrollbar {
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+      }
+      /* 1. Definición de la animación de desplazamiento */
+      @keyframes scroll-left {
+          /* Mueve el contenido exactamente a la mitad (100% de un bloque) */
+          from {
+              transform: translateX(0);
+          }
+          to {
+              /* Mueve el contenido el ancho total de un bloque duplicado */
+              transform: translateX(-50%);
+          }
+      }
+
+      /* 2. Aplicación de la animación a la pista */
+      .infinite-scroll-track {
+          /* Animación: nombre | duración | función de tiempo | repetición */
+          animation: scroll-left 40s linear infinite; 
+          
+          /* Asegura que el contenido sea lo suficientemente ancho para el bucle */
+          width: max-content; 
+      }
+      
+      /* 3. Pausar la animación al pasar el ratón (Buena práctica de UX) */
+      .infinite-scroll-track:hover {
+          animation-play-state: paused;
+      }
     </style>
   </head>
   <body class="bg-gray-950 text-gray-200">
