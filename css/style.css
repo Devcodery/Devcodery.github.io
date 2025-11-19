@@ -244,4 +244,88 @@ textarea {
     page-break-after: avoid;
   }
 }
+/* ==========================================================================
+   Estilos de Componentes Personalizados (Botones y Secciones)
+   ========================================================================== */
 
+/* Estilos de la Sección de Repositorios de GitHub */
+#github-repos {
+    padding: 2em 0; /* Espaciado vertical, usando 'em' para escalabilidad */
+    text-align: center;
+    border-top: 1px solid #ccc; /* Línea separadora sutil, como tu <hr> */
+    margin-top: 2em;
+}
+
+#github-repos h2 {
+    color: #222; /* Hereda el color de texto base */
+    margin-bottom: 1em;
+}
+
+.repo-buttons-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 1em;
+}
+
+/* Estilo Base para Todos los Botones (.button) */
+.button {
+    display: inline-flex; /* Usamos flex para centrar contenido e icono */
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    border: 1px solid transparent; /* Borde transparente para evitar saltos al hacer hover */
+}
+
+.button:focus {
+    outline: 2px solid #b3d4fc; /* Borde de enfoque de accesibilidad, usando tu color de selección */
+}
+
+/* Estilo para el Botón del Proyecto Jelly */
+.jelly-button {
+    background-color: #3f51b5; /* Un color primario sutil y profesional (ej. Azul) */
+    color: #fff;
+    border-color: #3f51b5;
+    margin-top: 1em; /* Espacio debajo del párrafo en el artículo */
+}
+
+.jelly-button:hover {
+    background-color: #303f9f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los Botones de GitHub */
+.github-button {
+    background-color: #fafafa; /* Fondo claro para integrarse con la página */
+    color: #222; /* Color de texto base */
+    border: 1px solid #ccc; /* Borde sutil para definir el área */
+}
+
+.github-button:hover {
+    background-color: #eeeeee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Espacio para el icono de Font Awesome (si se usa) */
+.github-button i {
+    margin-right: 8px; 
+}
+
+/* Ajustes responsivos (opcional) */
+@media only screen and (max-width: 600px) {
+    .repo-buttons-container {
+        flex-direction: column; /* Apilar botones en móviles */
+    }
+    .button {
+        width: 90%; /* Ancho completo en móviles para los botones de repo */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

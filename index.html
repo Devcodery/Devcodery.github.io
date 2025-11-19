@@ -1,186 +1,381 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Devcodery | Portfolio - Eros Pacheco</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <meta name="description" content="Portafolio de Eros Pacheco - Estudiante en Desarrollo de Aplicaciones Multiplataforma. Proyectos: VPN casera, servidor multimedia, Pi-hole.">
-  <style> body { font-family: 'Roboto', sans-serif; } </style>
-</head>
-<body class="bg-gray-950 text-gray-200">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Devcodery | Portfolio - Eros Pacheco</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet">
+    <meta name="description"
+      content="Portafolio de Eros Pacheco - Estudiante en Desarrollo de Aplicaciones Multiplataforma. Proyectos: VPN casera, servidor multimedia, Pi-hole.">
+    <style> 
+    body { font-family: 'Roboto', sans-serif; }
+    /* Ocultar barra de desplazamiento, pero mantener funcionalidad de scroll */
+    .custom-scrollbar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
 
-  <!-- Navbar -->
-  <header class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-800">
-    <nav class="max-w-6xl mx-auto flex items-center justify-between p-4">
-      <h1 class="text-xl font-bold text-purple-500">Devcodery</h1>
-      <ul class="hidden md:flex gap-6 text-sm">
-        <li><a href="#inicio" class="hover:text-purple-400 transition">Inicio</a></li>
-        <li><a href="#sobre-mi" class="hover:text-purple-400 transition">Sobre mí</a></li>
-        <li><a href="#servicios" class="hover:text-purple-400 transition">Servicios</a></li>
-        <li><a href="#proyectos" class="hover:text-purple-400 transition">Proyectos</a></li>
-        <li><a href="#blog" class="hover:text-purple-400 transition">Blog</a></li>
-        <li><a href="#contacto" class="hover:text-purple-400 transition">Contacto</a></li>
-      </ul>
-      <!-- mobile menu toggle (simple) -->
-      <div class="md:hidden">
-        <button id="btn-menu" aria-label="Abrir menú" class="text-gray-300">☰</button>
-      </div>
-    </nav>
-  </header>
+    .custom-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+    /* 1. Definición de la animación de desplazamiento */
+    @keyframes scroll-left {
+        /* Mueve el contenido exactamente a la mitad (100% de un bloque) */
+        from {
+            transform: translateX(0);
+        }
+        to {
+            /* Mueve el contenido el ancho total de un bloque duplicado */
+            transform: translateX(-50%);
+        }
+    }
 
-  <!-- Hero Section -->
-  <section id="inicio" class="h-screen flex items-center justify-center text-center px-4">
-    <div>
-      <h2 class="text-4xl md:text-6xl font-bold mb-4">Hola, soy <span class="text-purple-500">Eros Pacheco</span></h2>
-      <p class="text-purple-400 font-semibold mb-2">Estudiante en Desarrollo de Aplicaciones Multiplataforma</p>
-      <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-6">Transformo ideas en proyectos reales.</p>
+    /* 2. Aplicación de la animación a la pista */
+    .infinite-scroll-track {
+        /* Animación: nombre | duración | función de tiempo | repetición */
+        animation: scroll-left 40s linear infinite; 
+        
+        /* Asegura que el contenido sea lo suficientemente ancho para el bucle */
+        width: max-content; 
+    }
+    
+    /* 3. Pausar la animación al pasar el ratón (Buena práctica de UX) */
+    .infinite-scroll-track:hover {
+        animation-play-state: paused;
+    }
+    </style>
+  </head>
+  <body class="bg-gray-950 text-gray-200">
 
-      <div class="flex flex-wrap justify-center gap-3 mb-6 text-sm">
-        <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30">Java</span>
-        <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30">Python</span>
-        <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30">HTML</span>
-        <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30">CSS</span>
-        <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30">JavaScript</span>
-        <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30">Redes Domésticas</span>
-      </div>
-
-      <a href="#proyectos" class="inline-block bg-purple-600 hover:bg-purple-700 transition px-6 py-3 rounded-lg font-medium">Ver Proyectos</a>
-
-      <div class="flex justify-center gap-6 mt-8 text-2xl">
-        <a href="https://github.com/Devcodery" class="hover:text-purple-400 transition">GitHub</a>
-        <a href="https://www.linkedin.com/in/eros-pacheco-9bb850328/" class="hover:text-purple-400 transition">LinkedIn</a>
-        <a href="https://www.instagram.com/devcodery/" class="hover:text-purple-400 transition">Instagram</a>
-        <a href="" class="hover:text-purple-400 transition"></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sobre mí -->
-  <section id="sobre-mi" class="py-20 border-t border-gray-800">
-    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-      <!-- Texto principal -->
-      <div class="md:col-span-2">
-        <h3 class="text-3xl font-bold text-white mb-4">Sobre mí</h3>
-        <p class="text-gray-300 mb-4 leading-relaxed">
-          Hola — soy <strong>Eros Pacheco</strong>, estudiante de <em>Desarrollo de Aplicaciones Multiplataforma</em>. Me apasiona convertir ideas en proyectos reales: desde automatizar tareas hasta montar servicios en red para uso doméstico y aprendizaje.
-        </p>
-        <p class="text-gray-300 mb-4 leading-relaxed">
-          Actualmente estoy construyendo experiencia práctica mientras trabajo en proyectos personales y pequeños servicios para mi hogar. Me gusta aprender nuevas tecnologías y mejorar mis habilidades día a día.
-        </p>
-
-        <p class="text-gray-300 mb-4 leading-relaxed">
-          Me interesa la <strong>ciberseguridad</strong> y la <strong>administración de sistemas</strong>, y disfruto diseñando soluciones que sean robustas y mantenibles.
-        </p>
-
-        <div class="mt-6">
-          <h4 class="text-xl font-semibold text-white mb-2">Proyectos destacados</h4>
-          <ul class="list-disc pl-5 text-gray-300 space-y-2">
-            <li>VPN casera para acceso remoto y seguridad de la red.</li>
-            <li>Servidor multimedia propio para streaming local.</li>
-            <li>Servidor Pi-hole para bloqueo de publicidad y gestión de DNS.</li>
-          </ul>
+    <!-- Navbar -->
+    <header
+      class="fixed top-0 left-0 w-full bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-800">
+      <nav class="max-w-6xl mx-auto flex items-center justify-between p-4">
+        <h1 class="text-xl font-bold text-purple-500">Devcodery</h1>
+        <ul class="hidden md:flex gap-6 text-sm">
+          <li><a href="#inicio"
+              class="hover:text-purple-400 transition">Inicio</a></li>
+          <li><a href="#sobre-mi" class="hover:text-purple-400 transition">Sobre
+              mí</a></li>
+          <li><a href="#proyectos"
+              class="hover:text-purple-400 transition">Proyectos</a></li>
+          <li><a href="#contacto"
+              class="hover:text-purple-400 transition">Contacto</a></li>
+        </ul>
+        <!-- mobile menu toggle (simple) -->
+        <div class="md:hidden">
+          <button id="btn-menu" aria-label="Abrir menú"
+            class="text-gray-300 p-2 hover:text-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-md transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+          </button>
         </div>
+      </nav>
+      <div id="mobile-menu-content" class="hidden md:hidden bg-gray-900 border-t border-gray-800 absolute w-full">
+        <ul class="flex flex-col gap-2 p-4 text-sm">
+          <li><a href="#inicio" class="block py-2 hover:bg-gray-800 rounded transition">Inicio</a></li>
+          <li><a href="#sobre-mi" class="block py-2 hover:bg-gray-800 rounded transition">Sobre mí</a></li>
+          <li><a href="#proyectos" class="block py-2 hover:bg-gray-800 rounded transition">Proyectos</a></li>
+          <li><a href="#contacto" class="block py-2 hover:bg-gray-800 rounded transition">Contacto</a></li>
+        </ul>
       </div>
+      </nav>
+    </header>
 
-      <!-- Foto y habilidades -->
-      <aside class="flex flex-col items-center gap-6">
-        <!-- Placeholder image -->
-        <div class="w-48 h-48 rounded-xl bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center border border-gray-800 overflow-hidden">
-          <span class="text-gray-400">Tu foto aquí</span>
-        </div>
+    <!-- Hero Section -->
+    <section id="inicio"
+      class="h-screen flex items-center justify-center text-center px-4">
+      <div>
+        <h2 class="text-4xl md:text-6xl font-bold mb-4">Hola, soy <span
+            class="text-purple-500">Eros Pacheco</span></h2>
+        <p class="text-purple-400 font-semibold mb-2">Estudiante en Desarrollo
+          de Aplicaciones Multiplataforma</p>
+        <p
+          class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-6">Transformo
+          ideas en proyectos reales.</p>
 
-        <div class="w-full bg-gray-900/60 p-4 rounded-lg border border-gray-800">
-          <h5 class="text-sm font-semibold text-purple-400 mb-3">Mis habilidades</h5>
-          <div class="grid grid-cols-2 gap-2 text-sm text-gray-300">
-            <div>- Java</div>
-            <div>- Python</div>
-            <div>- HTML</div>
-            <div>- CSS</div>
-            <div>- JavaScript</div>
-            <div>- Redes domésticas</div>
-            <div>- Administración de servidores Linux</div>
-            <div>- Seguridad básica / VPN</div>
+        <div class="max-w-4xl mx-auto mb-6 text-sm px-4 sm:px-6"> 
+    
+          <div class="flex overflow-hidden py-2 whitespace-nowrap">
+              
+              <div class="flex infinite-scroll-track gap-3">
+                  
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0">Java</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0">C</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0">Python</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0">PostgreSQL</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0">HTML</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0">CSS</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0">JavaScript</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0">Redes Domésticas</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0">Administración Linux</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0">n8n</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0">Docker</span>
+
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0" aria-hidden="true">Java</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0" aria-hidden="true">C</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0" aria-hidden="true">Python</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0" aria-hidden="true">PostgreSQL</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0" aria-hidden="true">HTML</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0" aria-hidden="true">CSS</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0" aria-hidden="true">JavaScript</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0" aria-hidden="true">Redes Domésticas</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0" aria-hidden="true">Administración Linux</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0" aria-hidden="true">n8n</span>
+                  <span class="bg-gray-800 px-3 py-1 rounded-full border border-purple-500/30 flex-shrink-0" aria-hidden="true">Docker</span>
+                  
+              </div>
           </div>
         </div>
-      </aside>
-    </div>
-  </section>
 
-  <!-- Servicios (placeholder) -->
-  <section id="servicios" class="py-20 border-t border-gray-800">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-bold text-white mb-6">Servicios</h3>
-      <p class="text-gray-300 mb-4">Puedo ofrecer servicios como desarrollo web, scripts de automatización, configuración de redes domésticas y despliegue de servidores personales.</p>
-      <!-- Cards could go here -->
-    </div>
-  </section>
+        <a href="#proyectos"
+          class="inline-block bg-purple-600 hover:bg-purple-700 transition px-6 py-3 rounded-lg font-medium">Ver
+          Proyectos</a>
 
-  <!-- Proyectos (placeholder) -->
-  <section id="proyectos" class="py-20 border-t border-gray-800">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-bold text-white mb-6">Proyectos</h3>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Example project card -->
-        <article class="bg-gray-900/40 p-4 rounded-lg border border-gray-800">
-          <h4 class="font-semibold text-white mb-2">VPN Casera</h4>
-          <p class="text-gray-300 text-sm mb-3">Implementé una VPN para acceso remoto seguro a mi red doméstica, con enrutamiento y reglas básicas de firewall. 
-            Además, la configuré usando Docker para simplificar la creación y gestión de usuarios, utilizando WG-Easy como panel web de administración, 
-            lo que facilita mucho la gestión de conexiones y configuraciones.</p>
-          <p class="text-xs text-gray-400">Tecnologías: WireGuard, iptables, Linux, WG-Easy, Docker</p>
-        </article>
-
-        <article class="bg-gray-900/40 p-4 rounded-lg border border-gray-800">
-          <h4 class="font-semibold text-white mb-2">Jellyfin en Docker</h4>
-          <p class="text-gray-300 text-sm mb-3">Monté Jellyfin usando Docker para tener un servidor de medios ligero y fácil de administrar, con acceso rápido a películas 
-            y series desde cualquier dispositivo en mi red.</p>
-          <p class="text-xs text-gray-400">Tecnologías: Jellyfin, Linux, Docker</p>
-        </article>
-
-        <article class="bg-gray-900/40 p-4 rounded-lg border border-gray-800">
-          <h4 class="font-semibold text-white mb-2">Pi-hole</h4>
-          <p class="text-gray-300 text-sm mb-3">Servidor Pi-hole desplegado para bloqueo de publicidad y control de DNS en la red.</p>
-          <p class="text-xs text-gray-400">Tecnologías: Pi-hole, DNS, Docker, Linux</p>
-        </article>
-
-        <article class="bg-gray-900/40 p-4 rounded-lg border border-gray-800">
-          <h4 class="font-semibold text-white mb-2">Portainer</h4>
-          <p class="text-gray-300 text-sm mb-3">Instalé Portainer con Docker para administrar de forma sencilla todos mis contenedores y servicios, 
-            con una interfaz web clara que facilita el monitoreo y la gestión de mi servidor.</p>
-          <p class="text-xs text-gray-400">Tecnologías: Portainer, Linux, Docker</p>
-        </article>
+        <div class="flex justify-center gap-6 mt-8 text-2xl">
+          <a href="https://github.com/Devcodery"
+            class="hover:text-purple-400 transition"
+            target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/eros-pacheco-9bb850328/"
+            class="hover:text-purple-400 transition"
+            target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/devcodery/"
+            class="hover:text-purple-400 transition"
+            target="_blank">Instagram</a>
+          <a href class="hover:text-purple-400 transition"></a>
+        </div>
       </div>
+    </section>
+
+    <!-- Sobre mí -->
+    <section id="sobre-mi" class="py-20 border-t border-gray-800">
+      <div
+        class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <!-- Texto principal -->
+        <div class="md:col-span-2">
+          <h3 class="text-3xl font-bold text-white mb-4">Sobre mí</h3>
+          <p class="text-gray-300 mb-4 leading-relaxed">
+            Hola — soy <strong>Eros Pacheco</strong>, estudiante de <em>Desarrollo de Aplicaciones Multiplataforma</em>. 
+            Me apasiona el mundo del desarrollo de software y convertir ideas abstractas en 
+            código funcional, con un fuerte enfoque en Java y tecnologías backend.
+          </p>
+          <p class="text-gray-300 mb-4 leading-relaxed">
+            Actualmente estoy construyendo experiencia práctica mientras trabajo
+            en proyectos personales y pequeños servicios para mi hogar. Me gusta
+            aprender nuevas tecnologías y mejorar mis habilidades día a día.
+          </p>
+
+          <p class="text-gray-300 mb-4 leading-relaxed">
+            Además de programar, disfruto cacharreando con <strong>servidores y redes</strong>. 
+            En mi tiempo libre, gestiono mi propio <em>laboratorio doméstico</em>, 
+            lo que me permite aplicar mis conocimientos de ciberseguridad y 
+            administración de sistemas para crear entornos robustos donde ejecutar mis proyectos.
+          </p>
+
+          <div class="mt-6">
+            <h4 class="text-xl font-semibold text-white mb-2">Proyectos
+              destacados</h4>
+            <ul class="list-disc pl-5 text-gray-300 space-y-2">
+              <li>VPN casera para acceso remoto y seguridad de la red.</li>
+              <li>Servidor multimedia propio para streaming local.</li>
+              <li>Servidor Pi-hole para bloqueo de publicidad y gestión de
+                DNS.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Foto y habilidades -->
+        <aside class="flex flex-col items-center gap-6">
+          <!-- Placeholder image -->
+          <div
+            class="w-48 h-48 rounded-full bg-gradient-to-br from-gray-800 to-gray-700 flex items-center justify-center border-4 border-purple-500/50 overflow-hidden shadow-lg shadow-purple-900/50">
+            <span class="text-gray-400">Tu foto aquí</span> 
+          </div>
+
+          <div class="flex flex-col gap-4 w-full">
+
+            <div class="bg-gray-900/60 p-5 rounded-lg border border-gray-800 hover:border-purple-500/30 transition duration-300">
+              <h5 class="text-sm font-bold text-purple-400 uppercase tracking-wider mb-3 border-b border-gray-700 pb-2">
+                Lenguajes y BD
+              </h5>
+              <ul class="grid grid-cols-2 gap-x-2 gap-y-1 text-sm text-gray-300">
+                <li class="flex items-center"><span class="text-purple-500 mr-2">▹</span> Java</li>
+                <li class="flex items-center"><span class="text-purple-500 mr-2">▹</span> Python</li>
+                <li class="flex items-center"><span class="text-purple-500 mr-2">▹</span> C (Interm.)</li>
+                <li class="flex items-center"><span class="text-purple-500 mr-2">▹</span> JS</li>
+                <li class="flex items-center"><span class="text-purple-500 mr-2">▹</span> HTML/CSS</li>
+                <li class="flex items-center"><span class="text-purple-500 mr-2">▹</span> PostgreSQL</li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-900/60 p-5 rounded-lg border border-gray-800 hover:border-purple-500/30 transition duration-300">
+              <h5 class="text-sm font-bold text-purple-400 uppercase tracking-wider mb-3 border-b border-gray-700 pb-2">
+                Herramientas / DevOps
+              </h5>
+              <ul class="text-sm text-gray-300 space-y-2">
+                <li class="flex items-center">
+                  <span class="text-purple-500 mr-2">▹</span> Admin. Servidores Linux
+                </li>
+                <li class="flex items-center">
+                  <span class="text-purple-500 mr-2">▹</span> Docker & Portainer
+                </li>
+                <li class="flex items-center">
+                  <span class="text-purple-500 mr-2">▹</span> Redes Domésticas
+                </li>
+                <li class="flex items-center">
+                  <span class="text-purple-500 mr-2">▹</span> Seguridad / VPN
+                </li>
+                <li class="flex items-center">
+                  <span class="text-purple-500 mr-2">▹</span> n8n (Automatización)
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Proyectos (placeholder) -->
+    <section id="proyectos" class="py-20 border-t border-gray-800">
+      <div class="max-w-6xl mx-auto px-6">
+        <h3 class="text-3xl font-bold text-white mb-6">Proyectos</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Example project card -->
+          <article class="bg-gray-900/60 p-6 rounded-xl border border-purple-700/50 hover:border-purple-500 transition duration-300 shadow-xl shadow-gray-950">
+            <div class="flex items-center mb-3">
+                <span class="text-purple-500 text-2xl mr-3">⚙️</span> <h4 class="font-bold text-white text-xl">VPN Casera</h4>
+            </div>
+            <p class="text-gray-300 text-sm mb-3">Implementé una VPN para acceso
+              remoto seguro a mi red doméstica, con enrutamiento y reglas
+              básicas de firewall.
+              Además, la configuré usando Docker para simplificar la creación y
+              gestión de usuarios, utilizando WG-Easy como panel web de
+              administración,
+              lo que facilita mucho la gestión de conexiones y
+              configuraciones.</p>
+            <p class="text-xs text-gray-400">Tecnologías: WireGuard, iptables,
+              Linux, WG-Easy, Docker</p>
+          </article>
+
+          <article class="bg-gray-900/60 p-6 rounded-xl border border-purple-700/50 hover:border-purple-500 transition duration-300 shadow-xl shadow-gray-950">
+            <div class="flex items-center mb-3">
+                <span class="text-purple-500 text-2xl mr-3">📽️​</span> <h4 class="font-bold text-white text-xl">Jellyfin en Docker</h4>
+            </div>
+            <p class="text-gray-300 text-sm mb-3">Monté Jellyfin usando Docker
+              para tener un servidor de medios ligero y fácil de administrar,
+              con acceso rápido a películas
+              y series desde cualquier dispositivo en mi red.</p>
+            <p class="text-xs text-gray-400">Tecnologías: Jellyfin, Linux,
+              Docker</p>
+
+            <a href="https://jelly.devcodery.duckdns.org/" 
+              class="inline-block mt-4 bg-purple-600 hover:bg-purple-700 transition px-4 py-2 rounded-lg font-medium text-white text-sm" 
+              target="_blank">
+              Ver Servidor Jelly
+            </a>
+          </article>
+
+          <article class="bg-gray-900/60 p-6 rounded-xl border border-purple-700/50 hover:border-purple-500 transition duration-300 shadow-xl shadow-gray-950">
+            <div class="flex items-center mb-3">
+                <span class="text-purple-500 text-2xl mr-3">​🧱​</span> <h4 class="font-bold text-white text-xl">Pi-Hole</h4>
+            </div>
+            <p class="text-gray-300 text-sm mb-3">Servidor Pi-hole desplegado
+              para bloqueo de publicidad y control de DNS en la red.</p>
+            <p class="text-xs text-gray-400">Tecnologías: Pi-hole, DNS, Docker,
+              Linux</p>
+          </article>
+
+          <article class="bg-gray-900/60 p-6 rounded-xl border border-purple-700/50 hover:border-purple-500 transition duration-300 shadow-xl shadow-gray-950">
+            <div class="flex items-center mb-3">
+                <span class="text-purple-500 text-2xl mr-3">📂​</span> <h4 class="font-bold text-white text-xl">Portainer</h4>
+            </div>
+            <p class="text-gray-300 text-sm mb-3">Instalé Portainer con Docker
+              para administrar de forma sencilla todos mis contenedores y
+              servicios,
+              con una interfaz web clara que facilita el monitoreo y la gestión
+              de mi servidor.</p>
+            <p class="text-xs text-gray-400">Tecnologías: Portainer, Linux,
+              Docker</p>
+          </article>
+
+          <article class="bg-gray-900/60 p-6 rounded-xl border border-purple-700/50 hover:border-purple-500 transition duration-300 shadow-xl shadow-gray-950">
+            <div class="flex items-center mb-3">
+                <span class="text-purple-500 text-2xl mr-3">📷</span> <h4 class="font-bold text-white text-xl">Immich</h4>
+            </div>
+            <p class="text-gray-300 text-sm mb-3">Implementé Immich como alternativa a Google Photos. 
+                El sistema realiza <strong>backups automáticos</strong> desde mis dispositivos móviles y utiliza 
+                modelos de <strong>Machine Learning</strong> para reconocimiento facial y búsqueda inteligente, 
+              garantizando que mis datos permanezcan privados en mi servidor.</p>
+            <p class="text-xs text-gray-400">Tecnologías: Docker, PostgreSQL, Redis, Machine Learning, Linux</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Repos Section -->
+    <section id="github-repos" class="py-20 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <h3 class="text-3xl font-bold text-white mb-6">Mis Repositorios Importantes</h3>
+        
+        <div class="flex flex-wrap justify-center gap-4">
+            
+            <a href="https://github.com/Devcodery/Manuales" 
+                class="inline-flex items-center bg-gray-800 hover:bg-gray-700 transition px-6 py-3 rounded-lg font-medium text-gray-300 border border-gray-700 shadow-md" 
+                target="_blank">
+                <i class="fab fa-github text-xl mr-3 text-purple-400"></i> Repositorio 1: Manuales de Servicios con Docker
+            </a>
+
+            <!-- <a href="URL_DE_TU_SEGUNDO_REPO" 
+                class="inline-flex items-center bg-gray-800 hover:bg-gray-700 transition px-6 py-3 rounded-lg font-medium text-gray-300 border border-gray-700 shadow-md" 
+                target="_blank">
+                <i class="fab fa-github text-xl mr-3 text-purple-400"></i> Repositorio 2: 
+            </a> -->
+            
+        </div>
     </div>
-  </section>
+</section>
 
-  <!-- Contacto -->
-  <section id="contacto" class="py-20 border-t border-gray-800">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-bold text-white mb-6">Contacto</h3>
-      <p class="text-gray-300 mb-6">¿Quieres hablar de un proyecto o necesitas ayuda? Escríbeme.</p>
+    <!-- Contacto -->
+    <section id="contacto" class="py-20 border-t border-gray-800">
+      <div class="max-w-6xl mx-auto px-6">
+        <h3 class="text-3xl font-bold text-white mb-6">Contacto</h3>
+        <p class="text-gray-300 mb-6">¿Quieres hablar de un proyecto o necesitas
+          ayuda? Escríbeme.</p>
 
-      <form class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
-        <input class="bg-gray-900/40 p-3 rounded border border-gray-800" placeholder="Tu nombre" />
-        <input class="bg-gray-900/40 p-3 rounded border border-gray-800" placeholder="Tu email" />
-        <input class="md:col-span-2 bg-gray-900/40 p-3 rounded border border-gray-800" placeholder="Asunto" />
-        <textarea class="md:col-span-2 bg-gray-900/40 p-3 rounded border border-gray-800" rows="6" placeholder="Mensaje..."></textarea>
-        <button type="submit" class="md:col-span-2 bg-purple-600 hover:bg-purple-700 px-4 py-3 rounded">Enviar mensaje</button>
-      </form>
-    </div>
-  </section>
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
+          <input class="bg-gray-900/40 p-3 rounded border border-gray-800"
+            placeholder="Tu nombre" />
+          <input class="bg-gray-900/40 p-3 rounded border border-gray-800"
+            placeholder="Tu email" />
+          <input
+            class="md:col-span-2 bg-gray-900/40 p-3 rounded border border-gray-800"
+            placeholder="Asunto" />
+          <textarea
+            class="md:col-span-2 bg-gray-900/40 p-3 rounded border border-gray-800"
+            rows="6" placeholder="Mensaje..."></textarea>
+          <button type="submit"
+            class="md:col-span-2 bg-purple-600 hover:bg-purple-700 px-4 py-3 rounded">Enviar
+            mensaje</button>
+        </form>
+      </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="py-8 border-t border-gray-800 mt-12">
-    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-gray-400">
-      <p>&copy; <span id="year"></span> Eros Pacheco — Devcodery. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800 mt-12">
+      <div class="max-w-6xl mx-auto px-6 text-center text-sm text-gray-400">
+        <p>&copy; <span id="year"></span> Eros Pacheco — Devcodery. Todos los
+          derechos reservados.</p>
+      </div>
+    </footer>
 
-  <script>
+    <script>
     // Set year
     document.getElementById('year').innerText = new Date().getFullYear();
 
@@ -202,5 +397,5 @@
     });
   </script>
 
-</body>
+  </body>
 </html>
