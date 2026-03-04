@@ -41,7 +41,7 @@
             </div>
 
             <div class="md:hidden">
-                <button id="btn-menu" class="text-gray-300 p-2 hover:text-purple-400">
+                <button id="btn-menu" class="text-gray-300 p-2 hover:text-purple-400" title="Boton de estudio">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
@@ -132,20 +132,20 @@
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         
-                        <!-- <div class="border border-gray-700 bg-gray-900/60 p-4 rounded-xl flex items-start gap-4 hover:border-purple-500 transition">
-                            <div class="text-3xl text-purple-500"><i class="fas fa-language"></i></div>
+                         <div class="border border-gray-700 bg-gray-900/60 p-4 rounded-xl flex items-start gap-4 hover:border-purple-500 transition">
+                            <div class="text-3xl text-purple-500"><i class="fab fa-aws"></i></div>
                             <div>
-                                <h4 class="font-bold text-gray-200">Inglés B2 / C1</h4>
-                                <p class="text-sm text-gray-400">Escuela Oficial de Idiomas / Cambridge</p>
-                                <p class="text-xs text-gray-500 mt-1">Año 202X</p>
+                                <h4 class="font-bold text-gray-200">AWS</h4>
+                                <p class="text-sm text-gray-400">AWS Academy Graduate - Cloud Foundations</p>
+                                <p class="text-xs text-gray-500 mt-1">Año 2026</p>
                                 
-                                <button onclick="openModal('certificados/ingles.jpg')" class="mt-3 text-xs bg-purple-600/20 hover:bg-purple-600 hover:text-white text-purple-400 border border-purple-500/30 px-3 py-1 rounded transition cursor-pointer">
+                                <button onclick="openModal('img/Certificaciones/aws.png')" class="mt-3 text-xs bg-purple-600/20 hover:bg-purple-600 hover:text-white text-purple-400 border border-purple-500/30 px-3 py-1 rounded transition cursor-pointer">
                                     Ver Certificado
                                 </button>
                             </div>
                         </div>
 
-                        <div class="border border-gray-700 bg-gray-900/60 p-4 rounded-xl flex items-start gap-4 hover:border-purple-500 transition">
+                        <!--<div class="border border-gray-700 bg-gray-900/60 p-4 rounded-xl flex items-start gap-4 hover:border-purple-500 transition">
                             <div class="text-3xl text-purple-500"><i class="fas fa-server"></i></div>
                             <div>
                                 <h4 class="font-bold text-gray-200">Certificación Cisco / AWS / Otro</h4>
@@ -263,7 +263,7 @@
 
     <div id="cert-modal" class="fixed inset-0 z-[60] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300" onclick="closeModal()">
     
-        <button class="absolute top-5 right-5 text-gray-400 hover:text-white transition focus:outline-none" onclick="closeModal()">
+        <button class="absolute top-5 right-5 text-gray-400 hover:text-white transition focus:outline-none" onclick="closeModal()" title="Cerrar">
             <i class="fas fa-times text-3xl"></i>
         </button>
 
